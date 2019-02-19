@@ -1,5 +1,5 @@
 {
-  "name": "Domo StarterKit",
+  "name": "starterkit",
   "version": "0.1.0",
   "description": "A guide for charting with Phoenix in a Domo Custom App",
   "main": "index.js",
@@ -37,5 +37,13 @@
     "webpack-dev-server": "^3.1.14"
   },
   "author": "https://github.com/th3uiguy/",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DomoApps/StarterKit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DomoApps/StarterKit/issues"
+  },
+  "homepage": "https://github.com/DomoApps/StarterKit#readme"
 }
