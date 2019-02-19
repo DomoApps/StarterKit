@@ -14,7 +14,7 @@ Please ensure you have the following installed:
 
 
 ### Download and install StarterKit
-Use git to *clone* (download) this project from [https://github.com/DomoApps/StarterKit.git](https://github.com/DomoApps/StarterKit.git). If you are using a command line client, `cd` to the folder you want the `StarterKit` in then run:
+Use git to *clone* (download) this project from [https://github.com/DomoApps/StarterKit.git](https://github.com/DomoApps/StarterKit.git). If you are using a command line client, `cd` to the folder you want the `StarterKit` in, then run:
 ```bash
 git clone https://github.com/DomoApps/StarterKit.git
 ```
@@ -68,13 +68,16 @@ domo login
 
 ### Create your App's manifest
 - Go back to your terminal window and quit the `npm start` command (if it is still running, press `Ctrl + C` on Windows or `Cmd + C` on Mac).
-- Run the command `domo init` to start the process of initializing your Domo Custom App.
+- Run the command `domo init` to start the process of initializing your Domo Custom App:
+```bash
+domo init
+```
 - Give your App a name.
-- Choose **manifest only**
-- Connect to your dataset using the dataset id (Type `Y` when prompted).
+- Choose **manifest only**.
+- Connect to your dataset using the dataset id (type `Y` when prompted).
 - Paste your dataset id when prompted.
 - Give your dataset an alias, any name (whithout spaces) will do. You will use this alias later, so don't forget it.
-- You do not need to add anymore datasets (Type `n` when prompted).
+- You do not need to add anymore datasets (type `n` when prompted).
 
 
 ### Modify your App's manifest
@@ -290,15 +293,15 @@ const data = {
 ```
 
 Where:
-- `rows` is a 2 dimentional Array of the data
+- `rows` is a 2 dimentional `Array` of the data.
 - `columns` is an `Array` of `Objects` discribing how to chart each column (or Array index) in the `rows` Array. For instance, in the example above the value of the first index/column of my row data is "Corporate", so my `Object` for that column is:
-    - `type` - the value is a `string` so I use `PHOENIX_DATA_TYPE.STRING` here (see the Data Types section of [Phoenix API](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api) for the full list of types)
-    - `name` - the value came from the "Customer Segment" column of my dataset, so that is how I want Phoenix to label it
-    - `mapping` - Mappings vary by Chart Type (see the "Column Information" for your Chart Type on the [Chart Specific Information](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/properties) page of the documentation). I am using a [bar chart](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/chart/bar) so the supported mappings for my chart are `ITEM`,`VALUE` and `SERIES`. For a bar chart: 
-        - `ITEM` is graphed on the x axis
-        - `VALUE` is graphed on the y axis
-        - `SERIES` defines the segments of the bar chart making this a stacked bar chart
-        - See the "Column Information" for each Chart Type on the [Chart Specific Information](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/properties) for a complete list of mappings
+    - `type` - The value is a `string` so I use `PHOENIX_DATA_TYPE.STRING` here (see the **Data Types** section of [Phoenix API](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api) for the full list of types).
+    - `name` - The value came from the "Customer Segment" column of my dataset, so that is how I want Phoenix to label it.
+    - `mapping` - Mappings vary by Chart Type (see the **Column Information** for your Chart Type on the [Chart Specific Information](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/properties) page of the documentation). I am using a [bar chart](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/chart/bar) so the supported mappings for my chart are `ITEM`,`VALUE` and `SERIES`. For a bar chart: 
+        - `ITEM` is graphed on the x axis.
+        - `VALUE` is graphed on the y axis.
+        - `SERIES` defines the segments of the bar chart making this a stacked bar chart.
+        - See the **Column Information** for each Chart Type on the [Chart Specific Information](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/properties) for a complete list of mappings.
 
 
 ### Set the Chart Options
@@ -328,6 +331,6 @@ document.getElementById('phoenix-chart').appendChild(chart.canvas);
 // Render the chart when you're ready for the user to see it
 chart.render();
 ```
-More about `render()` and other methods supported by `PhoenixChart` can be found on the "Chart Methods" section of the [Phoenix API](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api) documentation.
+More about `render()` and other methods supported by `PhoenixChart` can be found on the **Chart Methods** section of the [Phoenix API](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api) documentation.
 
 ### Have fun charting!
