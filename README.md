@@ -12,8 +12,9 @@ Please ensure you have the following installed:
 - NPM - NPM is included with the [Node.js](https://nodejs.org/en/download/) install. Run `npm -v` in our terminal to ensure this is installed.
 - ryuu - This is intalled when doing the Dev Studio [Overview](https://developer.domo.com/docs/dev-studio/dev-studio-overview). Run `domo -v` in our terminal to ensure this is installed.
 
+
 ### Download and install StarterKit
-Use git to *clone* (download) this project from [https://github.com/DomoApps/StarterKit.git](https://github.com/DomoApps/StarterKit.git). If you are using a command line client, you can run the following command in your terminal:
+Use git to *clone* (download) this project from [https://github.com/DomoApps/StarterKit.git](https://github.com/DomoApps/StarterKit.git). If you are using a command line client, `cd` to the folder you want the `StarterKit` in then run:
 ```bash
 git clone https://github.com/DomoApps/StarterKit.git
 ```
@@ -21,7 +22,7 @@ git clone https://github.com/DomoApps/StarterKit.git
 
 In a terminal window, change to the `StarterKit` folder and install the project:
 ```bash
-cd /Path/to/StarterKit
+cd StarterKit
 npm install
 ```
 
@@ -69,7 +70,7 @@ domo login
 - Go back to your terminal window and quit the `npm start` command (if it is still running, press `Ctrl + C` on Windows or `Cmd + C` on Mac).
 - Run the command `domo init` to start the process of initializing your Domo Custom App.
 - Give your App a name.
-- Choose **manifest only** (down arrow to select it the option).
+- Choose **manifest only**
 - Connect to your dataset using the dataset id (Type `Y` when prompted).
 - Paste your dataset id when prompted.
 - Give your dataset an alias, any name (whithout spaces) will do. You will use this alias later, so don't forget it.
