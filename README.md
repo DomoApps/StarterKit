@@ -1,5 +1,5 @@
 # StarterKit
-The easiest way to get started with a Domo Design Studio App
+The easiest way to build a Domo Design Studio App using Domo's versatile charting engine, [Phoenix](https://github.com/DomoApps/domo-phoenix).
 
 
 ### Before you begin
@@ -13,7 +13,10 @@ Please ensure you have the following installed:
 - ryuu - This is intalled when doing the Dev Studio [Overview](https://developer.domo.com/docs/dev-studio/dev-studio-overview). Run `domo -v` in our terminal to ensure this is installed.
 
 
-### Download and install StarterKit
+
+
+
+# Download and install StarterKit
 Use git to *clone* (download) this project from [https://github.com/DomoApps/StarterKit.git](https://github.com/DomoApps/StarterKit.git). If you are using a command line client, `cd` to the folder you want the `StarterKit` in, then run:
 ```bash
 git clone https://github.com/DomoApps/StarterKit.git
