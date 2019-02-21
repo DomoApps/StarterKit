@@ -10,8 +10,7 @@ This guide assumes you have already completed the **Dev Studio** [Overview](http
 Please ensure you have the following installed:
 - A Git client - Have an installed [command line](https://git-scm.com/downloads) or [desktop](https://desktop.github.com/) Git client.
 - NPM - NPM is included with the [Node.js](https://nodejs.org/en/download/) install. Run `npm -v` in our terminal to ensure this is installed.
-- ryuu - This is intalled when doing the Dev Studio [Overview](https://developer.domo.com/docs/dev-studio/dev-studio-overview). Run `domo -v` in our terminal to ensure this is installed.
-
+- ryuu - This is installed when doing the Dev Studio [Overview](https://developer.domo.com/docs/dev-studio/dev-studio-overview). Run `domo -v` in our terminal to ensure this is installed.
 
 
 
@@ -39,7 +38,7 @@ Check that the server is running by going to [localhost:8080](http://localhost:8
 
 
 ### Edit index.html
-- Open `index.html` in the `StarterKit` folder in your prefered IDE or text editor.
+- Open `index.html` in the `StarterKit` folder in your preferred IDE or text editor.
 - Change the HTML in the `body` to "Hello World".
 - Go to back to [localhost:8080](http://localhost:8080) to see that the App changed (`npm start` should still be running).
 
@@ -80,7 +79,7 @@ domo init
 - Choose **manifest only**.
 - Connect to your dataset using the dataset id (type `Y` when prompted).
 - Paste your dataset id when prompted.
-- Give your dataset an alias, any name (whithout spaces) will do. You will use this alias later, so don't forget it.
+- Give your dataset an alias, any name (without spaces) will do. You will use this alias later, so don't forget it.
 - You do not need to add anymore datasets (type `n` when prompted).
 
 
@@ -117,7 +116,6 @@ npm install --save ryuu.js
 
 ### Add domo.js to your App
 Add `const domo = require('ryuu.js');` to the top of `src/index.js`. The top of `index.js` should now look like this:
-
 ```js
 require('normalize.css/normalize.css');
 const domo = require('ryuu.js');
@@ -131,8 +129,9 @@ domo.get('/data/v1/DATASET_ALIAS?limit=100').then(function(data){
 });
 ```
 
+
 # Publish and test your App
-Now that domo.js is added, you can test that it is querying your dataset correctly. Before you can test it you will need to build and publish your App again. If you don't remember how to do this, it is as simple as runing `npm run build` to build and then `npm run deploy`. If you want to get really fancy you can run both commands on one line like this:
+Now that domo.js is added, you can test that it is querying your dataset correctly. Before you can test it you will need to build and publish your App again. If you don't remember how to do this, it is as simple as running `npm run build` to build and then `npm run deploy`. If you want to get really fancy you can run both commands on one line like this:
 ```bash
 npm run build && npm run deploy
 ```
@@ -258,7 +257,7 @@ chart.render();
 # How to use PhoenixChart
 Before you can use `PhoenixChart` to graph your data, let's go over how it works. `PhoenixChart` requires the following parameters:
 1. Chart Type - [Choose a chart type](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/charts) that will best visualize your data
-2. Data - A two dimentional Array of the data
+2. Data - A two dimensional Array of the data
 3. Options - Set the "Chart Properties" your Chart Type supports. A full list of properties can be found, per Chart Type, on the [Chart Specific Information](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/properties) page of the documentation.
 
 
@@ -267,7 +266,7 @@ Before you can use `PhoenixChart` to graph your data, let's go over how it works
 - Examples of using these charts are found on the [Charts](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/charts) page of the documentation.
 
 
-### Formating your data for Phoenix
+### Formatting your data for Phoenix
 Phoenix expects data in the following format:
 ```js
 const data = {
@@ -297,8 +296,8 @@ const data = {
 ```
 
 Where:
-- `rows` is a 2 dimentional `Array` of the data.
-- `columns` is an `Array` of `Objects` discribing how to chart each column (or Array index) in the `rows` Array. For instance, in the example above the value of the first index/column of my row data is "Corporate", so my `Object` for that column is:
+- `rows` is a 2 dimensional `Array` of the data.
+- `columns` is an `Array` of `Objects` describing how to chart each column (or Array index) in the `rows` Array. For instance, in the example above the value of the first index/column of my row data is "Corporate", so my `Object` for that column is:
     - `type` - The value is a `string` so I use `PHOENIX_DATA_TYPE.STRING` here (see the **Data Types** section of [Phoenix API](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api) for the full list of types).
     - `name` - The value came from the "Customer Segment" column of my dataset, so that is how I want Phoenix to label it.
     - `mapping` - Mappings vary by Chart Type (see the **Column Information** for your Chart Type on the [Chart Specific Information](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/properties) page of the documentation). I am using a [bar chart](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/chart/bar) so the supported mappings for my chart are `ITEM`,`VALUE` and `SERIES`. For a bar chart: 
