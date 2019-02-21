@@ -1,5 +1,5 @@
 # StarterKit
-The easiest way to build a Domo Design Studio App using Domo's versatile charting engine, [Phoenix](https://github.com/DomoApps/domo-phoenix).
+The easiest way to build a Domo Dev Studio App using Domo's versatile charting engine, [Phoenix](https://github.com/DomoApps/domo-phoenix).
 
 
 ### Before you begin
@@ -40,7 +40,7 @@ Check that the server is running by going to [localhost:8080](http://localhost:8
 
 ### Edit index.html
 - Open `index.html` in the `StarterKit` folder in your prefered IDE or text editor.
-- Change the HTML in the `body` to "Hello Word".
+- Change the HTML in the `body` to "Hello World".
 - Go to back to [localhost:8080](http://localhost:8080) to see that the App changed (`npm start` should still be running).
 
 
@@ -58,7 +58,9 @@ https://mycompany.domo.com/datasources/f3312abc-469b-476e-8283-ef77367c9fec/deta
 
 
 ### Make sure you are up-to-date
-Before you can publish your App you will want to make sure that your `domo` client is up to date and linked to the correct account. To do this run:
+Before you can publish your App you will want to make sure that your `domo` client is up to date and linked to the correct instance. 
+- Go back to your terminal window and quit the `npm start` command (if it is still running, press `Ctrl + C` on Windows or `Cmd + C` on Mac).
+- To link the `domo` client to the correct instance, run the following in your terminal:
 ```bash
 domo login
 ```
@@ -70,7 +72,6 @@ domo login
 
 
 ### Create your App's manifest
-- Go back to your terminal window and quit the `npm start` command (if it is still running, press `Ctrl + C` on Windows or `Cmd + C` on Mac).
 - Run the command `domo init` to start the process of initializing your Domo Custom App:
 ```bash
 domo init
@@ -96,7 +97,7 @@ Return to your terminal window and type:
 npm run build
 npm run deploy
 ```
-You can now add your Custom App as Card to any page in Domo!
+Your Custom App can now be added as a Card to any page in Domo! We will do this in the *Using your Custom App* section.
 
 
 
@@ -131,7 +132,7 @@ domo.get('/data/v1/DATASET_ALIAS?limit=100').then(function(data){
 ```
 
 # Publish and test your App
-Now that domo.js is added, you can test that it is querying your dataset corectly. Before you can test it you will need to build and publish your App again. If you don't remember how to do this, it is as simple as runing `npm run build` to build and then `npm run deploy`. If you want to get really fancy you can run both commands on one line like this:
+Now that domo.js is added, you can test that it is querying your dataset correctly. Before you can test it you will need to build and publish your App again. If you don't remember how to do this, it is as simple as runing `npm run build` to build and then `npm run deploy`. If you want to get really fancy you can run both commands on one line like this:
 ```bash
 npm run build && npm run deploy
 ```
@@ -337,3 +338,34 @@ chart.render();
 More about `render()` and other methods supported by `PhoenixChart` can be found on the **Chart Methods** section of the [Phoenix API](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api) documentation.
 
 ### Have fun charting!
+
+
+
+
+# A charting example
+The following code calls the `.update()` method on an existing `PhoenixChart` (assigned to the `chart` variable). When calling `.update()` you pass it a new set of data to update the chart with. In the example, `getNewData()` is triggered after a 3 second delay. It will then query domo and update the chart with the result.
+```js
+function getNewData(category, series) {
+    console.log("called getNewData", {category, series});
+    domo.get('/data/v1/sales?fields=' + series + ',' + category + '&groupby=' + category).then(function (sales) {
+        var newData = {
+            rows: sales,
+            columns: [
+                {
+                    type: PHOENIX_DATA_TYPE.STRING,
+                    name: category,
+                    mapping: PHOENIX_MAPPING.ITEM
+                },
+                {
+                    type: PHOENIX_DATA_TYPE.DOUBLE,
+                    name: series,
+                    mapping: PHOENIX_MAPPING.VALUE
+                }
+            ]
+        };
+        chart.update(newData);
+    });
+}
+
+setTimeout(function () { getNewData('Region', 'Sales'); }, 3000);
+```
