@@ -131,9 +131,10 @@ domo.get('/data/v1/DATASET_ALIAS?limit=100').then(function(data){
 
 
 # Publish and test your App
-Now that domo.js is added, you can test that it is querying your dataset correctly. Before you can test it you will need to build and publish your App again. If you don't remember how to do this, it is as simple as running `npm run build` to build and then `npm run deploy`. If you want to get really fancy you can run both commands on one line like this:
+Now that domo.js is added, you can test that it is querying your dataset correctly. Before you can test it you will need to build and publish your App again. If you don't remember how to do this, it is as simple as running `npm run build` to build and then `npm run deploy`:
 ```bash
-npm run build && npm run deploy
+npm run build
+npm run deploy
 ```
 
 
