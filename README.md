@@ -118,6 +118,7 @@ npm install --save ryuu.js
 Add `const domo = require('ryuu.js');` to the top of `src/index.js`. The top of `index.js` should now look like this:
 ```js
 require('normalize.css/normalize.css');
+require('./styles/index.scss');
 const domo = require('ryuu.js');
 ```
 
