@@ -387,8 +387,8 @@ To use your Custom App, add it as a Card to one of your pages in Domo. To do thi
 
 
 
-# How to use PhoenixChart
-Before you can use `PhoenixChart` to graph your data, let's go over how it works. `PhoenixChart` requires the following parameters:
+# How to use Phoenix
+Before you can use Phoenix to graph your data, let's go over how it works. `Chart()` requires the following parameters:
 
 1. Chart Type - [Choose a chart type](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/charts) that will best visualize your data
 2. Data - A two dimensional Array of the data
@@ -412,19 +412,19 @@ const data = {
     ],
     columns: [
         {
-            type: PHOENIX_DATA_TYPE.STRING,
+            type: DATA_TYPE.STRING,
             name: 'Customer Segment',
-            mapping: PHOENIX_MAPPING.ITEM
+            mapping: MAPPING.ITEM
         },
         {
-            type: PHOENIX_DATA_TYPE.DOUBLE,
+            type: DATA_TYPE.DOUBLE,
             name: 'Sales',
-            mapping: PHOENIX_MAPPING.VALUE
+            mapping: MAPPING.VALUE
         },
         {
-            type: PHOENIX_DATA_TYPE.STRING,
+            type: DATA_TYPE.STRING,
             name: 'Order Priority',
-            mapping: PHOENIX_MAPPING.SERIES
+            mapping: MAPPING.SERIES
         }
     ]
 };
@@ -434,7 +434,7 @@ Where:
 
 - `rows` is a 2 dimensional `Array` of the data.
 - `columns` is an `Array` of `Objects` describing how to chart each column (or Array index) in the `rows` Array. For instance, in the example above the value of the first index/column of my row data is "Corporate", so my `Object` for that column is:
-    - `type` - The value is a `string` so I use `PHOENIX_DATA_TYPE.STRING` here (see the **Data Types** section of [Phoenix API](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api) for the full list of types).
+    - `type` - The value is a `string` so I use `DATA_TYPE.STRING` here (see the **Data Types** section of [Phoenix API](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api) for the full list of types).
     - `name` - The value came from the "Customer Segment" column of my dataset, so that is how I want Phoenix to label it.
     - `mapping` - Mappings vary by Chart Type (see the **Column Information** for your Chart Type on the [Chart Specific Information](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/properties) page of the documentation). I am using a [bar chart](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/chart/bar) so the supported mappings for my chart are `ITEM`,`VALUE` and `SERIES`. For a bar chart: 
         - `ITEM` is graphed on the x axis.
@@ -457,10 +457,10 @@ Note: A full list of the `properties` your Chart Type supports can be found on t
 
 
 ### Create the chart
-Once you have the `data` and have set the `options` you are ready to create a `PhoenixChart`.
+Once you have the `data` and have set the `options` you are ready to create a Phoenix `Chart`.
 
 ```js
-const chart = new PhoenixChart(PHOENIX_CHART_TYPE.BAR, data, options);
+const chart = new DomoPhoenix.Chart(CHART_TYPE.BAR, data, options);
 ```
 
 
@@ -475,6 +475,6 @@ document.getElementById('phoenix-chart').appendChild(chart.canvas);
 chart.render();
 ```
 
-More about `render()` and other methods supported by `PhoenixChart` can be found on the **Chart Methods** section of the [Phoenix API](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api) documentation.
+More about `render()` and other methods supported by `Chart` can be found on the **Chart Methods** section of the [Phoenix API](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api) documentation.
 
 ### Have fun charting!
