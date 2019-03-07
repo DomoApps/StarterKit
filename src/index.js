@@ -16,7 +16,10 @@ function chartIt(chartType, data, options){
     return chart;
 }
 
+// Step 1. Set datasetAlias to use the same name in your manifest
 const datasetAlias = 'sales';
+
+// Step 2. Set the column "name" and "type" below to columns in your dataset
 const columns = [
     {
         type: DomoPhoenix.DATA_TYPE.STRING,
@@ -24,9 +27,8 @@ const columns = [
         mapping: DomoPhoenix.MAPPING.SERIES
     },
     {
-        type: DomoPhoenix.DATA_TYPE.DATE,
-        name: 'Order Date',
-        dateGrain: 'quarter',
+        type: DomoPhoenix.DATA_TYPE.STRING,
+        name: 'Customer Segment',
         mapping: DomoPhoenix.MAPPING.ITEM
     },
     {
@@ -42,10 +44,10 @@ const columns = [
 let myChart = null;
 getData(datasetAlias, columns).catch(displayError).then((data) => {
     if(data){
-        // Set a chart type using the correct enum: https://domoapps.github.io/domo-phoenix/#/domo-phoenix/properties
+        // Step 3. Set a chart type using the correct enum: https://domoapps.github.io/domo-phoenix/#/domo-phoenix/properties
         const chartType = DomoPhoenix.CHART_TYPE.BAR;
 
-        // Set your "Chart Options": https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api
+        // Step 4. Set your "Chart Options": https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api
         const options = {
             width: 660,
             height: 450
