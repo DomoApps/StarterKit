@@ -68,10 +68,6 @@ chartIt(chartType, data, options);
 //// End Sample Chart
 
 
-// Add your app code here
-
-
-
 
 
 
