@@ -3,7 +3,6 @@ require('./styles/index.scss');
 const DomoPhoenix = require('@domoinc/domo-phoenix');
 const domo = require('ryuu.js');
 
-
 function chartIt(chartType, data, options){
     // Create the Phoenix Chart
     const chart = new DomoPhoenix.Chart(chartType, data, options);
@@ -17,7 +16,7 @@ function chartIt(chartType, data, options){
     return chart;
 }
 
-
+const datasetAlias = 'sales';
 const columns = [
     {
         type: DomoPhoenix.DATA_TYPE.STRING,
@@ -38,33 +37,44 @@ const columns = [
 ];
 
 
-// Chart the data
-let salesChart = null;
-getData('sales', columns).catch(displayError).then((data) => {
+
+// Get and chart the data
+let myChart = null;
+getData(datasetAlias, columns).catch(displayError).then((data) => {
     if(data){
+        // Set a chart type using the correct enum: https://domoapps.github.io/domo-phoenix/#/domo-phoenix/properties
         const chartType = DomoPhoenix.CHART_TYPE.BAR;
-        const phoenixData = { columns: columns, rows: data };
+
+        // Set your "Chart Options": https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api
         const options = {
             width: 660,
             height: 450
         }
-        salesChart = chartIt(chartType, phoenixData, options);
+
+        const phoenixData = { columns: columns, rows: data };
+        myChart = chartIt(chartType, phoenixData, options);
     }
 });
+
 
 
 // Refresh data on a 15 second interval
 const interval = 15000; //15 seconds
 setInterval(() => {
-    if(salesChart && salesChart.update){
-        getData('sales', columns).catch(displayError).then((data) => {
-            data && salesChart.update({ columns: columns, rows: data });
+    if(myChart && myChart.update){
+        getData(datasetAlias, columns).catch(displayError).then((data) => {
+            data && myChart.update({ columns: columns, rows: data });
         });
     }
 }, interval);
 
 
-////// Query Data ////////////
+
+
+/*/////////////////////////////////////////////////// 
+Below are helper functions to make querying and 
+charting data with DomoPhoenix easier
+///////////////////////////////////////////////////*/
 function getData(datasetAlias, columns){
     // Create a query object
     // For a full list of "query operators" see: https://developer.domo.com/docs/dev-studio-references/data-api
@@ -81,8 +91,6 @@ function getData(datasetAlias, columns){
     return domo.get(makeQueryString(datasetAlias, columns, query) + '&limit=1000');
 }
 
-
-////// Helper functions ////////////
 function makeQueryString(datasetAlias, columns, queryObject){
     var query = '/data/v1/' + datasetAlias + '?';
 
