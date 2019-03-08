@@ -1,5 +1,5 @@
 # StarterKit
-The easiest way to build a Domo Dev Studio App using Domo's versatile charting engine, [Phoenix](https://github.com/DomoApps/domo-phoenix).
+The easiest way to build a Domo Dev Studio App using Domo's versatile charting engine, [Phoenix](https://github.com/DomoApps/domo-phoenix). If you are already familiar with building a Custom App with Phoenix, you may want to refer to the [QuickStart](./QuickStart.md) for the minimal steps to get your app running.
 
 
 ### Before you begin
@@ -66,12 +66,12 @@ domo login
 - Select the correct "Domo instance" from the list or select "new instance" to add a new one.
 - If you choose "new instance" you will be prompted to enter the instance domain. Generally this is your "companyname" followed by `.domo.com`.
 - If your `domo` client needs to be updated you will be prompted here. Do it, it doesn't take that long.
-- If you are not already logged in to that instance, you will be prompted to do so via your web browser.
+- If you are not already logged into that instance, you will be prompted to do so via your web browser.
 - Once your instance is set and you are logged in, you are ready to publish to that instance.
 
 
 ### Create your App's manifest
-- Run the command `domo init` to start the process of initializing your Domo Custom App:
+Choose **manifest only** when running the `domo init` command to start the process of initializing your Domo Custom App:
 
 ```bash
 domo init
@@ -93,11 +93,10 @@ The default size in the DomoApp is too small for a Phoenix chart. Open the `mani
 - Save and close the file.
 
 
-### Build and Publish your App
+### Publish your App
 Return to your terminal window and type:
 
 ```bash
-npm run build
 npm run deploy
 ```
 
@@ -359,10 +358,9 @@ Your chart should now get refreshed with the most recent data every 15 seconds, 
 
 
 # Publish and test your App
-Now that domo.js is added, you can test that it is querying your dataset correctly. Before you can test it you will need to build and publish your App again. If you don't remember how to do this, it is as simple as running `npm run build` to build and then `npm run deploy`:
+Now that domo.js is added, you can test that it is querying your dataset correctly. Before you can test it you will need to build and publish your App again. If you don't remember how to do this, it is as simple as running `npm run deploy`:
 
 ```bash
-npm run build
 npm run deploy
 ```
 
@@ -388,7 +386,13 @@ To use your Custom App, add it as a Card to one of your pages in Domo. To do thi
 
 
 # How to use Phoenix
-Before you can use Phoenix to graph your data, let's go over how it works. `Chart()` requires the following parameters:
+Now that you have Phoenix added to graph your data, let's go over how it works. First we will look at this line:
+
+```js
+const chart = new DomoPhoenix.Chart(chartType, data, options);
+```
+
+Creating a new chart via `new DomoPhoenix.Chart()` requires the following parameters:
 
 1. Chart Type - [Choose a chart type](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/charts) that will best visualize your data
 2. Data - A two dimensional Array of the data
@@ -456,18 +460,13 @@ const options = {
 Note: A full list of the `properties` your Chart Type supports can be found on the [Chart Specific Information](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/properties) page of the documentation.
 
 
-### Create the chart
-Once you have the `data` and have set the `options` you are ready to create a Phoenix `Chart`.
-
-```js
-const chart = new DomoPhoenix.Chart(CHART_TYPE.BAR, data, options);
-```
-
-
 ### Place the canvas on your page
-Now just place the `canvas` element on your page and call the `.render()` method to tell Phoenix you are ready for it to draw your chart. 
+Once you know the `chartType` you want, have the `data`, and have set the `options` you are ready to create a Phoenix `Chart`. Now just place the `canvas` element on your page and call the `.render()` method to tell Phoenix you are ready for it to draw your chart:
 
 ```js
+// Create the chart
+const chart = new DomoPhoenix.Chart(chartType, data, options);
+
 // Append the canvas element to your app
 document.getElementById('phoenix-chart').appendChild(chart.canvas);
  
@@ -478,3 +477,5 @@ chart.render();
 More about `render()` and other methods supported by `Chart` can be found on the **Chart Methods** section of the [Phoenix API](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/api) documentation.
 
 ### Have fun charting!
+
+Once you have completed this guide you may want to refer to the [QuickStart](./QuickStart.md)

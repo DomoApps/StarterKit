@@ -6,8 +6,9 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js --mode production && ncp manifest.json \"dist/manifest.json\" && ncp thumbnail.png \"dist/thumbnail.png\"",
     "deploy": "cd dist && domo publish && ncp manifest.json \"../manifest.json\" && cd ..",
+    "predeploy": "npm run build",
     "serve": "cd dist && domo dev",
-    "start": "node node_modules/npm-run-all/bin/run-p watch serve",
+    "start": "./node_modules/.bin/run-p watch serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "preview": "npm run build && http-server dist",
     "watch": "webpack --config webpack.dev.js --mode development"
