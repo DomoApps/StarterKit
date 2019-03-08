@@ -3,6 +3,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin'); //installed via npm
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const buildPath = path.resolve(__dirname, 'dist');
 
@@ -74,6 +75,12 @@ module.exports = {
         ]
     },
     plugins: [
+        new CopyPlugin([
+            'manifest.json', 
+            'thumbnail.png',
+            {from: 'src/assets/fonts', to: 'assets/fonts'},
+            {from: 'src/assets/images', to: 'assets/images'},
+        ]),
         new HtmlWebpackPlugin({
             template: './index.html',
             // Inject the js bundle at the end of the body of the given template
