@@ -1,5 +1,5 @@
 # StarterKit
-The easiest way to build a Domo [Dev Studio App](https://developer.domo.com/docs/dev-studio/dev-studio-overview) using [Domo](www.domo.com)'s versatile charting engine, [Phoenix](https://github.com/DomoApps/domo-phoenix). If you are already familiar with building a Custom App with Phoenix, you may want to refer to the [QuickStart](./QuickStart.md) for the minimal steps to get your app running.
+The easiest way to build a Domo [Dev Studio App](https://developer.domo.com/docs/dev-studio/dev-studio-overview) using [Domo](https://www.domo.com)'s versatile charting engine, [Phoenix](https://github.com/DomoApps/domo-phoenix). If you are already familiar with building a Custom App with Phoenix, you may want to refer to the [QuickStart](./QuickStart.md) for the minimal steps to get your app running.
 
 
 ### Before you begin
