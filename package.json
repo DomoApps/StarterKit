@@ -15,13 +15,13 @@
     "watch": "webpack --config webpack.dev.js --mode development"
   },
   "dependencies": {
-    "@domoinc/domo-phoenix": "^0.8.0",
+    "@domoinc/domo-phoenix": "^0.8.4",
     "normalize.css": "^8.0.0",
     "ryuu.js": "^2.6.2"
   },
   "devDependencies": {
-    "ajv": "^6.3.0",
-    "autoprefixer": "^9.3.1",
+    "ajv": "^6.10.0",
+    "autoprefixer": "^9.4.10",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
@@ -41,7 +41,7 @@
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
-    "webpack": "^4.20.2",
+    "webpack": "^4.29.6",
     "webpack-cli": "^3.1.1"
   },
   "author": "https://github.com/th3uiguy/",
