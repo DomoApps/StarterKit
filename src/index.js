@@ -79,7 +79,7 @@ function getData(datasetAlias, columns){
     // Create a query object
     // For a full list of "query operators" see: https://developer.domo.com/docs/dev-studio-references/data-api
     var query = {
-        "fields": getColumnNames(columns)
+        "fields": getColumnNames(columns),
     };
 
     // Some DataSets are massive and will bring any web browser to its knees if you
@@ -97,15 +97,10 @@ function makeQueryString(datasetAlias, columns, queryObject){
     // Handle date grains
     processGrains(columns, queryObject);
 
-    for(var key in queryObject){
-        if (queryObject.hasOwnProperty(key)) {
-            var value = queryObject[key];
-            if(typeof value === "object" && value.join != null){
-                value = value.join(",");
-            }
-            query += "&" + key + "=" + value;
-        }
-    }
+    Object.entries(queryObject).forEach(([key, value]) => {
+        typeof value === "object" && value.join != null && (value = value.join(","));
+        query += "&" + key + "=" + value;
+    });
 
     return query;
 }
