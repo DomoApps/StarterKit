@@ -1,4 +1,6 @@
 # StarterKit
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FDomoApps%2FStarterKit.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FDomoApps%2FStarterKit?ref=badge_shield)
+
 The easiest way to build a Domo [Dev Studio App](https://developer.domo.com/docs/dev-studio/dev-studio-overview) using [Domo](https://www.domo.com)'s versatile charting engine, [Phoenix](https://github.com/DomoApps/domo-phoenix). If you are already familiar with building a Custom App with Phoenix, you may want to refer to the [QuickStart](./QuickStart.md) for the minimal steps to get your app running.
 
 
@@ -479,3 +481,7 @@ More about `render()` and other methods supported by `Chart` can be found on the
 ### Have fun charting!
 
 Once you have completed this guide you may want to refer to the [QuickStart](./QuickStart.md)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FDomoApps%2FStarterKit.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FDomoApps%2FStarterKit?ref=badge_large)
